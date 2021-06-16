@@ -23,11 +23,28 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # -----------
 
 # Install a VS Code extension:
-# Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
-# RUN code-server --install-extension esbenp.prettier-vscode
+# material icon
+RUN code-server --install-extension pkief.material-icon-theme
+# formatter
+RUN code-server --install-extension esbenp.prettier-vscode
+# - python
+RUN code-server --install-extension ms-python.python
+# c/c++
+RUN code-server --install-extension ms-vscode.cpptools
+# vue
+RUN code-server --install-extension liuji-jim.vue
+RUN code-server --install-extension octref.vetur
+# javascript
+RUN code-server --install-extension dbaeumer.vscode-eslint
+# git
+RUN code-server --install-extension eamodio.gitlens
+RUN code-server --install-extension donjayamanne.githistory
+
 
 # Install apt packages:
-# RUN sudo apt-get install -y ubuntu-make
+WORKDIR /home/coder
+RUN yes | sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN sed -i '11 s/robbyrussell/avit/' .zshrc
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
