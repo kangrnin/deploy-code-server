@@ -29,8 +29,6 @@ RUN code-server --install-extension pkief.material-icon-theme
 RUN code-server --install-extension esbenp.prettier-vscode
 # - python
 RUN code-server --install-extension ms-python.python
-# c/c++
-RUN code-server --install-extension ms-vscode.cpptools
 # vue
 RUN code-server --install-extension liuji-jim.vue
 RUN code-server --install-extension octref.vetur
