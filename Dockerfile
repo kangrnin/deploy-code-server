@@ -44,7 +44,6 @@ RUN code-server --install-extension donjayamanne.githistory
 # Install apt packages:
 WORKDIR /home/coder
 RUN yes | sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-RUN sed -i '11 s/robbyrussell/avit/' .zshrc
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
