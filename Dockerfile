@@ -41,10 +41,8 @@ RUN code-server --install-extension donjayamanne.githistory
 
 # Install apt packages:
 WORKDIR /home
-#sudo usermod -l newUsername oldUsername
-#sudo usermod -d /home/newHomeDir -m newUsername
-#RUN (echo 9090 && echo 9090) | sudo passwd coder
-#RUN echo 'y\n9090' | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN (echo 9090 && echo 9090) | sudo passwd coder
+RUN (echo y && echo 9090) | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
