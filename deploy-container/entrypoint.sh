@@ -10,9 +10,6 @@ mkdir -p $START_DIR
 if [[ -z "${RCLONE_DATA}" ]]; then
     echo "[$PREFIX] RCLONE_DATA is not specified. Files will not persist"
 
-    # start the project
-    project_init
-
 else
     echo "[$PREFIX] Copying rclone config..."
     mkdir -p /home/coder/.config/rclone/
@@ -58,9 +55,7 @@ else
     else
 
         if [ $RCLONE_AUTO_PUSH = "true" ]; then
-            # we need to clone the git repo and sync
             echo "[$PREFIX] Pushing initial files to remote..."
-            project_init
             /home/coder/push_remote.sh&
         else
             # user specified they don't want to apply the tasks
