@@ -6,17 +6,9 @@ PREFIX="deploy-code-server"
 
 mkdir -p $START_DIR
 
-# function to clone the git repo or add a user's first file if no repo was specified.
-project_init () {
-    [ -z "${GIT_REPO}" ] && echo "[$PREFIX] No GIT_REPO specified" && echo "Example file. Have questions? Join us at https://community.coder.com" > $START_DIR/coder.txt || git clone $GIT_REPO $START_DIR
-}
-
 # add rclone config and start rclone, if supplied
 if [[ -z "${RCLONE_DATA}" ]]; then
     echo "[$PREFIX] RCLONE_DATA is not specified. Files will not persist"
-
-    # start the project
-    project_init
 
 else
     echo "[$PREFIX] Copying rclone config..."
@@ -65,7 +57,6 @@ else
         if [ $RCLONE_AUTO_PUSH = "true" ]; then
             # we need to clone the git repo and sync
             echo "[$PREFIX] Pushing initial files to remote..."
-            project_init
             /home/coder/push_remote.sh&
         else
             # user specified they don't want to apply the tasks
