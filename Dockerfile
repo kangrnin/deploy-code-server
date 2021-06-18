@@ -41,6 +41,8 @@ RUN code-server --install-extension donjayamanne.githistory
 
 # Install apt packages:
 WORKDIR /home/coder
+RUN echo $PASSWORD
+RUN echo "$PASSWORD"
 RUN (echo $PASSWORD && echo $PASSWORD) | sudo passwd coder
 RUN (echo y && echo $PASSWORD) | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN sed -i '11 s/robbyrussell/avit/' .zshrc
