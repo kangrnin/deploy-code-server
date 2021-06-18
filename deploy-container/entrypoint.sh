@@ -66,6 +66,7 @@ else
 
 fi
 
+whoami
 echo "PASSWORD = $PASSWORD"
 
 echo "[$PREFIX] Starting code-server..."
