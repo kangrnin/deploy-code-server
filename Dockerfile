@@ -38,6 +38,14 @@ RUN code-server --install-extension dbaeumer.vscode-eslint
 RUN code-server --install-extension eamodio.gitlens
 RUN code-server --install-extension donjayamanne.githistory
 
+
+# Change user password to code-server $PASSWORD
+WORKDIR /home/coder
+ARG PASSWORD
+RUN echo $PASSWORD
+RUN (echo $PASSWORD && echo $PASSWORD) | sudo passwd coder
+
+
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
 
