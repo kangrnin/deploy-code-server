@@ -46,6 +46,11 @@ RUN echo $PASSWORD
 RUN (echo $PASSWORD && echo $PASSWORD) | sudo passwd coder
 
 
+# Install oh-my-zsh and change theme
+RUN (echo y && echo $PASSWORD) | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN sed -i '11 s/robbyrussell/avit/' .zshrc
+
+
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
 
