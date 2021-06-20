@@ -51,8 +51,19 @@ RUN (echo y && echo $PASSWORD) | sh -c "$(curl -fsSL https://raw.githubuserconte
 RUN sed -i '11 s/robbyrussell/avit/' .zshrc
 
 
+# Configure git user info
+RUN git config --global user.email "kangrnin@gmail.com"
+RUN git config --global user.name "kangrnin"
+
+
 # Install apt packages:
-# RUN sudo apt-get install -y ubuntu-make
+RUN yes | sudo apt install npm
+
+
+# Install npm packages:
+RUN sudo npm install -g n
+RUN sudo npm install -g eslint
+
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
