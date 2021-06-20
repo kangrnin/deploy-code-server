@@ -57,6 +57,7 @@ RUN git config --global user.name "kangrnin"
 
 
 # Install apt packages:
+RUN sudo apt install zip
 RUN yes | sudo apt install npm
 
 
