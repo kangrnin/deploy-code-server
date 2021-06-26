@@ -49,6 +49,8 @@ RUN (echo $PASSWORD && echo $PASSWORD) | sudo passwd coder
 # Install oh-my-zsh and change theme
 RUN (echo y && echo $PASSWORD) | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN sed -i '11 s/robbyrussell/avit/' .zshrc
+# zsh aliases
+RUN sed -i '1 i # Command Aliases\nalias run-cpp="g++ a.cpp && ./a.out > output.txt"\nalias run-py="python3 a.py"\n' .zshrc
 
 
 # Configure git user info
