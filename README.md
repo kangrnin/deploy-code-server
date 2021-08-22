@@ -14,7 +14,7 @@ A collection of one-click buttons and scripts for deploying [code-server](https:
 
 ---
 
-## code-server on a VM vs. a Container
+## code-server on a VM vs. a Containe
 
 - VMs are deployed once, and then can be modified to install new software
   - You need to save "snapshots" to use your latest images
